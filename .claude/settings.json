@@ -1,0 +1,183 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              ".claude/hooks/session_start.py"
+            ]
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              ".claude/hooks/user_prompt_submit.py"
+            ]
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              ".claude/hooks/pre_edit_check.py"
+            ]
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              ".claude/hooks/pre_edit_check.py"
+            ]
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              ".claude/hooks/post_edit_check.py"
+            ]
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              ".claude/hooks/post_edit_check.py"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "specValidation": {
+    "enabled": true,
+    "autoCheckOnA2": true,
+    "requireSpecVersion": true,
+    "specFiles": [
+      "docs/design/{module}/{module}-data-models.md",
+      "docs/design/{module}/{module}-api.md",
+      "docs/design/{module}/{module}-information-flow.md"
+    ],
+    "moduleSpecs": {
+      "mss": "docs/design/core-algorithms/mss/",
+      "irs": "docs/design/core-algorithms/irs/",
+      "pas": "docs/design/core-algorithms/pas/",
+      "gui": "docs/design/gui/",
+      "backtest": "docs/design/backtest/",
+      "trading": "docs/design/trading/"
+    }
+  },
+  "specSync": {
+    "enabled": true,
+    "checkOnSessionStart": true,
+    "notifyOnUpdate": true,
+    "specDirectory": "docs/design/",
+    "watchPatterns": [
+      "**/*.md"
+    ]
+  },
+  "enabledPlugins": {
+    "everything-claude-code@everything-claude-code": true
+  },
+  "mcpServers": {
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "env": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
+      }
+    },
+    "exa": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.exa.ai/mcp"
+      ],
+      "env": {}
+    },
+    "fetch": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ],
+      "env": {}
+    },
+    "filesystem": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "G:\\EmotionQuant_beta",
+        "G:\\EmotionQuant_data"
+      ],
+      "env": {}
+    },
+    "mcp-playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "env": {}
+    },
+    "memory": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "env": {
+        "MEMORY_FILE_PATH": "G:\\EmotionQuant_data\\mcp-memory\\memory.json"
+      }
+    },
+    "sequential-thinking": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "env": {}
+    }
+  }
+}

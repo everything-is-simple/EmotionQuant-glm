@@ -1,0 +1,7 @@
+# 开发依赖（在 requirements.txt 核心依赖之上叠加）
+-r requirements.txt
+
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.7.0
+flake8>=6.1.0

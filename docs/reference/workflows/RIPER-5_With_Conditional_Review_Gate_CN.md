@@ -1,0 +1,21 @@
+# RIPER-5 协议（外部参考索引）
+
+**版本**: v1.0
+**最后更新**: 2026-02-04
+**定位**: 外部方法论参考，不作为项目治理流程
+
+---
+
+## 项目执行口径
+
+项目执行与门控以 6A 工作流为准：
+
+- Phase → Task：[6A-WORKFLOW-phase-to-task.md](../../../Governance/steering/workflow/6A-WORKFLOW-phase-to-task.md)
+- Task → Step：[6A-WORKFLOW-task-to-step.md](../../../Governance/steering/workflow/6A-WORKFLOW-task-to-step.md)
+
+---
+
+## 说明
+
+- 原始 RIPER-5 内容已移除以避免重复。
+- 如需历史正文，请查看 Git 历史版本或外部来源。
