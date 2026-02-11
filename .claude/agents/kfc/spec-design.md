@@ -154,7 +154,7 @@ The design document should be based on the requirements document, so ensure it e
 
 - The model SHOULD cite sources and include relevant links in the conversation
 
-- The model MUST create a detailed design document at 'Governance/specs/{feature_name}/design.md'
+- The model MUST create a detailed design document at '.claude/specs/{feature_name}/design.md'
 
 - The model MUST incorporate research findings directly into the design process
 

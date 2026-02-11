@@ -64,14 +64,18 @@ class Bar:
 ### 4. 技术指标使用
 
 ```python
-# ❌ 严格禁止
+# ❌ 禁止作为独立交易触发
 import talib
-ma = talib.MA(close, timeperiod=20)
-rsi = talib.RSI(close, timeperiod=14)
+rsi_signal = talib.RSI(close, timeperiod=14) > 70
+if rsi_signal:
+    place_order()  # 错误：单指标独立触发
 
-# ✅ 只能使用基础市场数据
-up_count = (df['close'] > df['open']).sum()
-limit_up_count = (df['close'] >= df['limit_up']).sum()
+# ✅ 可用于对照/特征工程，但必须联合情绪因子并通过 Gate
+rsi = talib.RSI(close, timeperiod=14)
+features['rsi_14'] = rsi
+can_trade = (mss_score >= 70) and (final_gate in {"PASS", "WARN"})
+if can_trade:
+    place_order()
 ```
 
 ## 权威文档参考

@@ -25,8 +25,8 @@ git branch --show-current
 | 文档 | 路径 | 用途 |
 | ------ | ------ | ------ |
 | 核心原则 | `Governance/steering/CORE-PRINCIPLES.md` | 零容忍规则 |
-| 6A 工作流 | `Governance/steering/workflow/6A-WORKFLOW-task-to-step.md` | A1-A6 执行流程 |
-| Phase→Task | `Governance/steering/workflow/6A-WORKFLOW-phase-to-task.md` | Phase 分解流程 |
+| 6A 工作流 | `Governance/steering/6A-WORKFLOW.md` | A1-A6 执行流程 |
+| Spiral 路线 | `Governance/Capability/SPIRAL-CP-OVERVIEW.md` | 本圈目标与 CP 选择 |
 
 ### 3. 状态确认
 
@@ -60,7 +60,7 @@ git branch --show-current
 - [ ] [待处理项2]
 
 ### 核心约束提醒
-1. **零技术指标**: 禁用 MA/RSI/MACD/KDJ/BOLL
+1. **技术指标边界**: 可用于对照/特征工程，但不得独立触发交易
 2. **路径硬编码**: 必须通过 Config 读取
 3. **TDD 强制**: 红灯 → 绿灯 → 重构
 

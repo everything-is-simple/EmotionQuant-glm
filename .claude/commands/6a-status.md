@@ -22,10 +22,10 @@
 | ------ | ------ | ---------- | ---------- |
 | A1 | Align 对齐 | 做什么？为什么？ | requirements.md |
 | A2 | Architect 架构 | 怎么设计？ | design.md |
-| A3 | Atomize 原子化 | 怎么拆分？ | tasks.md |
-| A4 | Approve 审批 | 设计可行吗？ | approve.md |
-| A5 | Automate 实现 | 怎么做？ | 代码 + 测试 + review.md |
-| A6 | Assess 评估 | 做完了吗？做得好吗？ | final.md |
+| A3 | Act 实现 | 最小实现怎么落地？ | 代码 + 最小自动化测试 |
+| A4 | Assert 验证 | run/test/artifact 是否可复现？ | 验证结果 |
+| A5 | Archive 归档 | 证据链是否完整归档？ | review.md + final.md |
+| A6 | Advance 推进 | 五项同步是否完成？ | 同步记录 |
 
 ### 3. 输出格式
 
@@ -40,10 +40,10 @@
 ### 阶段状态
 - A1 Align: ✅ 已完成 / 🔄 进行中 / ⏳ 待开始
 - A2 Architect: ✅ / 🔄 / ⏳
-- A3 Atomize: ✅ / 🔄 / ⏳
-- A4 Approve: ✅ / 🔄 / ⏳
-- A5 Automate: ✅ / 🔄 / ⏳
-- A6 Assess: ✅ / 🔄 / ⏳
+- A3 Act: ✅ / 🔄 / ⏳
+- A4 Assert: ✅ / 🔄 / ⏳
+- A5 Archive: ✅ / 🔄 / ⏳
+- A6 Advance: ✅ / 🔄 / ⏳
 
 ### 下一步行动
 [根据当前阶段给出建议]
@@ -57,13 +57,13 @@
 
 - **A2**: 完成三维设计，运行一致性自查
 
-- **A3**: 拆分 Step，标注依赖关系
+- **A3**: 落地最小实现，并补齐至少 1 条自动化测试
 
-- **A4**: 运行 `/a4-check`，等待用户批准
+- **A4**: 运行 `/a4-check`，验证 run/test/artifact 可复现
 
-- **A5**: 遵循 TDD，运行 `/tdd` 查看提醒
+- **A5**: 归档 `review.md` 与 `final.md`，补全证据链
 
-- **A6**: 运行 `/a6-check`，完成文档同步
+- **A6**: 运行 `/a6-check`，完成五项最小同步
 
 ### 5. 相关命令
 
