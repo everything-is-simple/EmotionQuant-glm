@@ -138,7 +138,7 @@
 1. 相对强度 = industry_pct_chg - benchmark_pct_chg
    → normalize_zscore → relative_strength_score
 
-2. 连续性因子 = 0.6×Σ(net_breadth,5d) + 0.4×Σ(net_new_high,5d)
+2. 连续性因子 = 0.6×Σ(net_breadth,5d) + 0.4×Σ(net_new_high_ratio,5d)
    → normalize_zscore → continuity_score
 
 3. 资金流向 = Σ(amount_delta, 10d)
@@ -162,12 +162,16 @@
 处理流程：
 1. 龙头因子
    leader_avg_pct = Mean(top5_pct_chg)
-   leader_limit_ratio = top5_limit_up / 5
-   leader_score = 0.6 × normalize(leader_avg_pct) + 0.4 × scale(leader_limit_ratio)
+   leader_limit_up_ratio = top5_limit_up / 5
+   leader_score = 0.6 × normalize_zscore(leader_avg_pct)
+                + 0.4 × normalize_zscore(leader_limit_up_ratio)
 
 2. 行业基因库
-   gene_score = 0.6 × time_decay(history_limit_up)
-              + 0.4 × time_decay(history_new_high)
+   history_limit_up_ratio = history_limit_up_count / stock_count
+   history_new_high_ratio = history_new_high_count / stock_count
+   gene_raw = 0.6 × time_decay(history_limit_up_ratio, decay=0.9)
+            + 0.4 × time_decay(history_new_high_ratio, decay=0.9)
+   gene_score = normalize_zscore(gene_raw)
 
 依赖组件：IrsFactorCalculator
 ```

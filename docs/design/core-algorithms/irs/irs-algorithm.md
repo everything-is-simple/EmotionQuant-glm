@@ -123,11 +123,11 @@ relative_strength_score = normalize_zscore(relative_strength)
 - net_breadth = rise_ratio - fall_ratio
 - new_high_ratio = new_100d_high_count / stock_count
 - new_low_ratio  = new_100d_low_count / stock_count
-- net_new_high = new_high_ratio - new_low_ratio
+- net_new_high_ratio = new_high_ratio - new_low_ratio
 
 公式：
 continuity_raw = 0.6 × Σ(net_breadth, window=5)
-               + 0.4 × Σ(net_new_high, window=5)
+               + 0.4 × Σ(net_new_high_ratio, window=5)
 continuity_score = normalize_zscore(continuity_raw)
 
 参数：
@@ -381,7 +381,6 @@ neutrality = 1 - |industry_score - 50| / 50
 | breadth_net_weight | 0.6 | 0.4-0.8 | 连续性中净广度权重 |
 | breadth_high_low_weight | 0.4 | 0.2-0.6 | 连续性中净新高权重 |
 | zscore_window | 120 | 60-240 | Z-Score 统计窗口 |
-| valuation_smooth | 0.3 | 0.1-0.6 | 估值平滑系数 |
 | leader_top_n | 5（锁定） | 固定5 | 与 `top5_codes/top5_pct_chg/top5_limit_up` 字段强耦合，MVP 不开放可调 |
 | gene_decay | 0.9 | 0.7-0.98 | 基因库衰减系数 |
 
