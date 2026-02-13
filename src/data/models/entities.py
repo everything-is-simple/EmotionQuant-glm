@@ -11,6 +11,6 @@ class StockBasic:
 
 @dataclass(frozen=True)
 class TradeCalendar:
-    cal_date: str
+    trade_date: str
     is_open: int
     pretrade_date: str = ""
